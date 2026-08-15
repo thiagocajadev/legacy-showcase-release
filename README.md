@@ -12,14 +12,14 @@
   <a href="https://learn.microsoft.com/ef/core/"><img src="https://img.shields.io/badge/sqlite-ef_core_10-003B57?style=flat-square&logo=sqlite&logoColor=white" alt="SQLite via EF Core 10" /></a>
   <br>
   <a href="../../releases/latest"><img src="https://img.shields.io/github/v/release/thiagocajadev/legacy-showcase-release?style=flat-square&label=vers%C3%A3o&color=blue" alt="Versão publicada" /></a>
-  <a href="../../releases/latest/download/LegacyShowcase-windows-x64.exe"><img src="https://img.shields.io/badge/baixar-Windows-0078D4?style=flat-square&logo=windows&logoColor=white" alt="Baixar para Windows" /></a>
+  <a href="../../releases/latest/download/legacy-showcase-windows-setup.exe"><img src="https://img.shields.io/badge/baixar-Windows-0078D4?style=flat-square&logo=windows&logoColor=white" alt="Baixar para Windows" /></a>
   <a href="https://ls.thiagocaja.dev"><img src="https://img.shields.io/badge/ERP-no_navegador-22C55E?style=flat-square&logo=amazons3&logoColor=white" alt="ERP no navegador" /></a>
 </div>
 
 <br>
 
 Este é o espelho público de distribuição do **legacy-showcase**, e guarda só o
-executável do Windows. O código-fonte está no repositório de desenvolvimento, e a
+instalador do Windows. O código-fonte está no repositório de desenvolvimento, e a
 página que você está lendo serve a quem quer baixar e abrir o programa.
 
 > **Este repositório guarda uma versão só, e ela é sempre a mais recente.**
@@ -36,7 +36,7 @@ página que você está lendo serve a quem quer baixar e abrir o programa.
 | Termo | O que é |
 | :-- | :-- |
 | **self-contained** | Publicação que leva o runtime do .NET dentro dela, sem exigir instalação prévia |
-| **arquivo único** (single file) | Todo o conteúdo publicado empacotado em um `.exe` só, extraído para pasta temporária ao abrir |
+| **instalação por usuário** | Instalação que grava só na pasta do seu usuário, e por isso não pede senha de administrador |
 | **SmartScreen** | Filtro do Windows que avisa ao abrir um executável sem assinatura de certificado de código |
 | **migração** (migration) | Alteração de estrutura do banco versionada em código, aplicada na abertura do programa |
 | **WebAssembly** | Formato que roda código compilado dentro do navegador, e o que permite o mesmo C# atender a versão web |
@@ -45,7 +45,7 @@ página que você está lendo serve a quem quer baixar e abrir o programa.
 
 | Plataforma | Arquivo | Requisito |
 | :-- | :-- | :-- |
-| Windows | [`LegacyShowcase-windows-x64.exe`](../../releases/latest/download/LegacyShowcase-windows-x64.exe) | Windows 10 ou 11, 64 bits |
+| Windows | [`legacy-showcase-windows-setup.exe`](../../releases/latest/download/legacy-showcase-windows-setup.exe) | Windows 10 ou 11, 64 bits |
 | Linux e macOS | (sem download) | atendido pela [versão web](https://ls.thiagocaja.dev) |
 
 **Por que não há Linux nem macOS.** Windows Forms é uma camada sobre a API de
@@ -56,17 +56,20 @@ núcleo de domínio compilado para WebAssembly.
 
 ## O que esperar ao abrir
 
-**O download é o programa, não um instalador.** Abrir o arquivo é executar: nada
-é instalado, nada é escrito no registro do Windows, e apagar o arquivo desfaz
-tudo.
+**Abrir e avançar até concluir.** O download é um instalador, e o assistente está
+em português. Ele oferece um atalho na área de trabalho, e cria a entrada em
+Programas e Recursos para desinstalar depois.
 
-**O SmartScreen avisa na primeira execução**, porque o executável não é assinado
+**O SmartScreen avisa na primeira execução**, porque o instalador não é assinado
 por certificado de código. Clique em **Mais informações** e depois em **Executar
 assim mesmo**.
 
-**Nada precisa ser instalado antes.** A publicação é self-contained e de arquivo
-único, com o runtime do .NET embutido. A primeira execução demora mais que as
-seguintes, porque o conteúdo é extraído para uma pasta temporária antes de rodar.
+**Não pede senha de administrador.** A instalação é por usuário, em
+`%LOCALAPPDATA%\Programs\LegacyShowcase`, e nada é gravado fora da pasta do seu
+usuário.
+
+**Nada precisa ser instalado antes.** A publicação é self-contained, com o
+runtime do .NET embutido, então não há o que baixar além deste arquivo.
 
 **O banco de dados é criado na primeira execução**, em
 `%LOCALAPPDATA%\legacy-showcase\legacy.db`. As migrações são aplicadas na
@@ -77,14 +80,16 @@ credencial de acesso já vem preenchida na tela de login.
 
 ## Atualizar de uma versão anterior
 
-Baixe o arquivo novo e substitua o antigo. Não há desinstalação, porque não houve
-instalação.
+Baixe e abra normalmente: **não é preciso desinstalar antes.** O instalador
+reconhece a instalação anterior pelo identificador do aplicativo, troca os
+arquivos e mantém um atalho só. Ele remove o que a versão nova não usa mais,
+então nada de sobra se acumula a cada atualização.
 
-O banco fica na pasta de dados do usuário e não junto do executável, então os
-dados continuam disponíveis depois da troca, e as migrações pendentes são
-aplicadas na primeira abertura da versão nova. Feche o programa antes de
-substituir o arquivo, ou o Windows recusa a escrita. Para começar de um banco
-vazio, apague a pasta `%LOCALAPPDATA%\legacy-showcase`.
+O banco fica na pasta de dados do usuário e não junto do programa, então os dados
+continuam disponíveis depois da troca, e as migrações pendentes são aplicadas na
+primeira abertura da versão nova. Feche o aplicativo antes de atualizar; se
+estiver aberto, o instalador pede para fechar. Para começar de um banco vazio,
+apague a pasta `%LOCALAPPDATA%\legacy-showcase`.
 
 ## O aplicativo
 
