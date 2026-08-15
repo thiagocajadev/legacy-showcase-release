@@ -11,7 +11,7 @@
   <a href="https://learn.microsoft.com/aspnet/core/blazor/"><img src="https://img.shields.io/badge/blazor-webassembly-512BD4?style=flat-square&logo=blazor&logoColor=white" alt="Blazor WebAssembly" /></a>
   <a href="https://learn.microsoft.com/ef/core/"><img src="https://img.shields.io/badge/sqlite-ef_core_10-003B57?style=flat-square&logo=sqlite&logoColor=white" alt="SQLite via EF Core 10" /></a>
   <br>
-  <img src="https://img.shields.io/badge/versão-0.12.0-blue?style=flat-square" alt="Versão 0.12.0" />
+  <a href="../../releases/latest"><img src="https://img.shields.io/github/v/release/thiagocajadev/legacy-showcase-release?style=flat-square&label=vers%C3%A3o&color=blue" alt="Versão publicada" /></a>
   <a href="../../releases/latest/download/LegacyShowcase-windows-x64.exe"><img src="https://img.shields.io/badge/baixar-Windows-0078D4?style=flat-square&logo=windows&logoColor=white" alt="Baixar para Windows" /></a>
   <a href="https://ls.thiagocaja.dev"><img src="https://img.shields.io/badge/ERP-no_navegador-22C55E?style=flat-square&logo=amazons3&logoColor=white" alt="ERP no navegador" /></a>
 </div>
@@ -22,14 +22,14 @@ Este é o espelho público de distribuição do **legacy-showcase**, e guarda s�
 executável do Windows. O código-fonte está no repositório de desenvolvimento, e a
 página que você está lendo serve a quem quer baixar e abrir o programa.
 
-> **Versão publicada: v0.12.0**
+> **Este repositório guarda uma versão só, e ela é sempre a mais recente.**
 >
-> Este repositório guarda **uma versão só**. Cada publicação apaga a release e a
-> tag anteriores, então o que está em [Releases](../../releases/latest) é sempre o
-> estado corrente do `main`. O nome do arquivo não carrega o número da versão, que
-> aparece só na tag, e por isso `releases/latest/download/` funciona como endereço
-> permanente. O histórico de mudanças está no CHANGELOG do repositório de
-> desenvolvimento.
+> Cada publicação apaga a release e a tag anteriores, então o que está em
+> [Releases](../../releases/latest) corresponde ao estado corrente do `main`. O
+> número da versão não é escrito nesta página: o badge acima lê a release
+> publicada, e o link de download aponta para `releases/latest/download/`, que é
+> endereço permanente porque o nome do arquivo não carrega versão. O histórico de
+> mudanças está no CHANGELOG do repositório de desenvolvimento.
 
 ## Conceitos fundamentais
 
